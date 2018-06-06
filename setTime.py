@@ -4,8 +4,9 @@ import urllib2
 from datetime import datetime
 from dateutil import tz
 import os
+import ssl
 
-lines=urllib2.urlopen("https://developer.yahoo.com/util/timeservice/V1/getTime.html").readlines()
+lines=urllib2.urlopen("https://developer.yahoo.com/util/timeservice/V1/getTime.html", context=ssl._https_verify_certificates(False)).readlines()
 dateline=lines[-1]
 #print dateline
 
